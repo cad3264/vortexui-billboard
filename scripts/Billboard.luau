@@ -27,11 +27,9 @@ function billboardAPI.createNewBillboard(text,textID,origin,size)
     Billboards[textID] = {
         origin = origin,
         text = text,
-        size = size
+        size = size,
+        blocks = Billboards[textID].blocks or {}
     }
-    if not existedBefore then
-		Billboards[textID].blocks = {}
-    end
 end
 
 function billboardAPI.removeBillboard(textID)
