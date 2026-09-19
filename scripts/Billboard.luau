@@ -25,13 +25,18 @@ end
 function billboardAPI.createNewBillboard(text,textID,origin,size)
     Billboards[textID] = {
         origin = origin,
-        blocks = {},
         text = text,
         size = size
     }
+    if not Billboards[textID] then
+		Billboards[textID].blocks = {}
+    end
 end
 
 function billboardAPI.removeBillboard(textID)
+    for i, v in ipairs(Billboards[textID].blocks) do
+        v:Destroy()
+    end
     Billboards[textID] = nil
 end
 
