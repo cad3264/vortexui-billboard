@@ -23,12 +23,13 @@ function updateBillboards()
 end
 
 function billboardAPI.createNewBillboard(text,textID,origin,size)
+    local existedBefore = Billboards[textID] ~= nil
     Billboards[textID] = {
         origin = origin,
         text = text,
         size = size
     }
-    if not Billboards[textID] then
+    if not existedBefore then
 		Billboards[textID].blocks = {}
     end
 end
